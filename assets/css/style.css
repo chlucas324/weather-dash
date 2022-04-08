@@ -1,0 +1,16 @@
+.header {
+    background-color: #577399;
+}
+
+h1 {
+    color: white;
+    font-weight: bold;
+}
+.mb-3 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.btn {
+    font-size: 20px;
+}
