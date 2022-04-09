@@ -37,7 +37,7 @@ var weatherDisplay = function(citySearch) {
         console.log(response);
         response.json().then(function(data) {
             console.log(data);
-            createWeather(data, citySearch);
+            // createWeather(data, citySearch);
         });
     }else {
         alert("Unable to display weather");
@@ -47,22 +47,27 @@ var weatherDisplay = function(citySearch) {
         alert("Unable to connect to OpenWeather");
     });
   };
-    // window.onload = function() {
-    // weatherDisplay( 6167865 );
-//   }
+
+var mainDiv = document.getElementById("city-details");
+
+
+var locationName = document.createElement("p");
+locationName.textContent = citySearch;
+locationName.classList = "city-details col-8 border border-dark";
+mainDiv.append(citySearch);
+
 
   // take weather data as a parameter and insert it into div elements
 //   function createWeather(data) {
-//       var celcius = Math.round(parseFloat(data.main.temp)-273.15);
+
+
+
+
+
+    //       var celcius = Math.round(parseFloat(data.main.temp)-273.15);
 //     //   var fahrenheit = Math.round((parseFloat(data.main.temp)-273.15)*1);
 
-//       document.getElementById("icon").innerHTML = data[i].weather.icon;
-//       document.getElementById("temp").innerHTML = celcius + "&deg;";
-//       document.getElementById("wind").innerHTML = data[i].wind.speed;
-//       document.getElementById("humidity").innerHTML = data[i].main.humdity;
-//       document.getElementById("uvi").innerHTML = data[i].current.uvi;
 
-//   }
 
   locationEl.addEventListener("submit", formSubmitHandler);
   
