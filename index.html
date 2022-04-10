@@ -11,6 +11,8 @@
 </head>
 
 <body>
+
+<!-- header with website name-->    
 <header>
     <div class="header container p-4 my-4">
      <div class="d-flex justify-content-center">
@@ -19,40 +21,52 @@
     </div>
 </header>
 
+<!-- search box -->
 <main class="flex-row justify-space-between"></main>
-    <div class="container">
-        <div class="row">
-            <div class="col-4 card">
-            <form id="location" class="card-body">
+    <div class="flex-row justify-space-between col-12">
+        <div class="col-12 col-md-4">
+            <div class="card">
+            <form id="location-form" class="card-body">
                 <div class="mb-3">
-                <label for="city">Search for a City:</label><br>
-                <input type="text" id="city" name="city" autofocus="true" value="">
+                    <label for="city">Search for a City:</label><br>
+                    <input type="text" id="city" name="city" autofocus="true" value="">
                 </div>
-                <button type="submit" class="btn btn-primary">Search</button> 
+                    <button type="submit" class="btn btn-primary">Search</button> 
             </form>
-            <div id="city-container" class="list-group">
-            </div>
-            </div>
-            
-            
-            <div class="city-details weather col-8 border border-dark" id="city-details">
-                <div class="col">
-                <div class="card" style="width: 15vw">
-                    <h3 class="card-text">city</h3>
-                    <h4 class="card-text">date</h4>
-                <span id="location-search-term"></span>
-                <img src="http://openweathermap.org/img/wn/10d@4x.png" class="card-img-top" alt="weather description"/>
-                <div class="card-body">
-                    <p class="card-text">Temp:</p>
-                    <p class="card-text">Humidity:</p>
-                    <p class="card-text">UV Index:</p>
-                </div>
-            </div>
-        </div> 
+         </div>
+        </div>  
+
+    <!-- current weather card-->        
+    <div class="col-12 col-md-8">
+        <div class="card hidden" id="current-weather-card">
+            <h2 class="card-header" id="weather-status"></h2>
+            <div class="card-body" id="current-weather"></div>
+        </div>
     </div>
 </div>
 
+<!-- search history -->
+<div class="flex-row justify-space-between col-12">
+    <div class="col-12 col-md-4" id="search-history">
+        <div class="card" id="history" style="display: none">
+            <h3 class="card-header">Search History</h3>
+            <div class="card-body" id="search-history-buttons">
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- 5 day forecast-->
+<div class="col-12 col-md-8">
+    <div class="card hidden" id="five-day-forecast-card">
+        <h2 class="card-header" id="five-day-forecast-head"> 5 Day Forecast</h2>
+        <div class="card-body flex-row justify-space-around" id="five-day-forecast-body">
+    </div>
+    </div>
+</div>
+</div>
+</main>
+
 <script src="assets/js/script.js"></script>
 </body>
 </html>
