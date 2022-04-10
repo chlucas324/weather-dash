@@ -96,7 +96,7 @@ var displayWeather = function(weather) {
     //temperature element
     var temperature = document.createElement('p');
     temperature.id = "temperature";
-    temperature.innerHTML = "<strong>Temperature:</strong> " + weather.current.temp.toFixed(1) + "°F";
+    temperature.innerHTML = "<strong>Temp:</strong> " + weather.current.temp.toFixed(1) + "°F";
     currentWeatherEl.appendChild(temperature);
 
     //humidity element
