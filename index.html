@@ -19,29 +19,33 @@
     </div>
 </header>
 
-<section>
-    <div class="container pt-4">
+<main class="flex-row justify-space-between"></main>
+    <div class="container">
         <div class="row">
-            <div class="col-4">
-            <form>
+            <div class="col-4 card">
+            <form id="location" class="card-body">
                 <div class="mb-3">
-                <label for="city">Search for a city:</label><br>
-                <input type="text" id="city" name="city" value="">
+                <label for="city">Search for a City:</label><br>
+                <input type="text" id="city" name="city" autofocus="true" value="">
                 </div>
-                <button type="search" class="btn btn-primary btn-block">Search</button> 
-            
+                <button type="submit" class="btn btn-primary">Search</button> 
             </form>
-            <!-- <div class="col-12">city</div> -->
+            <div id="city-container" class="list-group">
             </div>
-            <div class="col-8 border border-dark">
-                <h2>City</h2>
-                <h3>Temp:</h3>
-                <h3>Wind:</h3>
-                <h3>Humidity:</h3>
-                <h3>UV Index:</h3>
+            </div>
+            
+            <div class="city-details col-8 border border-dark" id="city-details">
+                <span id="location-search-term"></span>
+                <!-- <h2  id="cityName">City</h2>
+                <h2  id="date">Date</h2>
+                <h2  id="icon">Icon</h2>
+                <h3 id="temp">Temp:</h3>
+                <h3  id="wind">Wind:</h3>
+                <h3  id="humidity">Humidity:</h3>
+                <h3 id="uvi">UV Index:</h3> -->
             </div>
         </div> 
     </div>
-</section>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
