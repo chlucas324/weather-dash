@@ -2,27 +2,127 @@
     box-sizing: border-box;
 }
 
-.header {
-    background-color: #577399;
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Heebo', sans-serif;
 }
 
-h1 {
-    color: white;
-    font-weight: bold;
-}
-.mb-3 {
-    font-size: 30px;
-    font-weight: bold;
+ main {
+     margin: 20px;
+ }
+
+.hero {
+    padding: 20px;
+    background-color: #0077b6;
+    color: white; 
+    text-align: center;
+    margin: 20px;
+    border-radius: 15px;
 }
 
-label {
-  padding: 10px;  
+.dashboard-title {
+    font-size: 60px;   
 }
 
-input {
-    border-radius: 10px;
+.btn {
+    width: 100%;
 }
-button {
+
+/* card */
+
+div .card {
+    border: 2px solid #00b4d8;
+}
+
+.card {
+    margin: 20px;
+}
+
+.card-header {
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.card-body {
+    padding: 20px; 
+    margin: 20px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.day {
+    background-color: #caf0f8;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 15px;
+
+}
+
+/* form styling */
+.form-label, .form-input {
+    display: block;
+    
+}
+
+.form-label {
+    margin: 10px;
     font-size: 20px;
-    width: 73%;  
+
 }
+
+.form-input {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 30px;
+    border: 2px solid #03045e;
+    border-radius: 8px;
+}
+
+/* flex */
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+  }
+  
+  .justify-space-around {
+    justify-content: space-around;
+  }
+  
+  .justify-flex-start {
+    justify-content: flex-start
+  }
+
+/* UV index */
+.uv-index-green span{
+    padding: 5px 5px;
+    background-color: rgb(35, 236, 35);
+    border-radius: 8px;
+}
+
+.uv-index-red span{
+    padding: 5px 5px;
+    background-color: rgb(247, 3, 3, 0.75);
+    border-radius: 8px;
+}
+
+.uv-index-yellow span{
+    padding: 5px 5px;
+    background-color: yellow;
+    border-radius: 8px;
+}
+
