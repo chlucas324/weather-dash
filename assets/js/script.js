@@ -23,13 +23,15 @@ var formSubmitHandler = function(event) {
     }
 };
 
-
+locationEl.addEventListener("submit", formSubmitHandler);
+  
 var weatherDisplay = function(citySearch) {
 
     //format the api url
     var key = "ef65ac2984fd01f84d27ea3510b43589";
-    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + citySearch + '&appid=' + key;  
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q='  + citySearch + '&appid=' + key + '&cnt=6';  
     
+
     //make a get request to url
     fetch(apiUrl).then(function(response) {
     // request was successful
@@ -37,37 +39,38 @@ var weatherDisplay = function(citySearch) {
         console.log(response);
         response.json().then(function(data) {
             console.log(data);
-            // createWeather(data, citySearch);
         });
-    }else {
-        alert("Unable to display weather");
-    }
-    })
-    .catch(function(error) {
-        alert("Unable to connect to OpenWeather");
-    });
-  };
+    } 
+// add city name to card
+// var mainDiv = document.getElementById("card-text-city-name");
+// var locationName = document.createElement("h2");
+// locationName.textContent = citySearch;
+// locationName.classList = "city-details col-8 border border-dark";
+// mainDiv.append(citySearch);            
 
-var mainDiv = document.getElementById("city-details");
-
-
-var locationName = document.createElement("p");
-locationName.textContent = citySearch;
-locationName.classList = "city-details col-8 border border-dark";
-mainDiv.append(citySearch);
+let row = document.querySelector(".city-details");
 
 
-  // take weather data as a parameter and insert it into div elements
-//   function createWeather(data) {
+row.innerHTML = response.daily
+// .map((day, idx) => {
+//     if (idx <= 6) 
+    {
+        var dt = new Date(day.dt * 1000);// timestamp * 1000
+        
+        return `<div class="col">
+        <div class="card">
+        <h3 class="card-text">city ${city.name}</h3>
+        <h4 class="card-text">${dt.toDateString()}</h4>
+        <img src="http://openweathermap.org/img/wn/${weather[0].icon}@4x.png" class="card-img-top" alt="${day.weather[0].description}"/> 
+        <div class="card-body">
+            <p class="card-text">Temp: ${main[0].temp}</p>
+            <p class="card-text">Humidity: ${main[0].humidity}</p>
+            <p class="card-text">Wind: ${wind[0].speed}</p>
+            <p class="card-text">UV Index: ${main[0].uvi}</p>
+        </div>
+        </div>`;
+    }   
 
-
-
-
-
-    //       var celcius = Math.round(parseFloat(data.main.temp)-273.15);
-//     //   var fahrenheit = Math.round((parseFloat(data.main.temp)-273.15)*1);
-
-
-
-  locationEl.addEventListener("submit", formSubmitHandler);
-  
+})
+// .join('')
+};
