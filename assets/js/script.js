@@ -33,7 +33,7 @@ if (cityName) {
     cityNameInputEl.value = "";
 }
 else {
-    alert("Please enter a City name");
+    alert("Please enter a city.");
 }
 
 }
@@ -59,8 +59,8 @@ var longitude = cityResponse.coord.lon;
 var city = cityResponse.name;
 var date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
 var weatherIcon = cityResponse.weather[0].icon;
-var weatherDescription = cityResponse.weather[0].description;
-var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />"
+
+var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + "'  />"
 
 // clear current weather container for new info
 currentWeatherEl.textContent = "";
@@ -90,7 +90,7 @@ return fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude +
 var displayWeather = function(weather) {
     // has api returned data?
     if (weather.length === 0) {
-        weatherContainerEl.textContent = "No weather data found.";
+        weatherContainerEl.textContent = "No data found.";
         return;
     }
     //temperature element
@@ -108,7 +108,7 @@ var displayWeather = function(weather) {
     //wind element
     var windSpeed = document.createElement('p');
     windSpeed.id = "wind-speed";
-    windSpeed.innerHTML = "<strong>Wind Speed:</strong> " + weather.current.wind_speed.toFixed(1) + " MPH";
+    windSpeed.innerHTML = "<strong>Wind:</strong> " + weather.current.wind_speed.toFixed(1) + " MPH";
     currentWeatherEl.appendChild(windSpeed);
 
     //uvi element
@@ -141,7 +141,7 @@ var displayWeather = function(weather) {
     dayEl.innerHTML = "<p><strong>" + date + "</strong></p>" +
         "<p>" + weatherIconLink + "</p>" +
         "<p><strong>Temp:</strong> " + forecastArray[i].temp.day.toFixed(1) + "°F</p>" +
-        "<p><strong>Humidity:</strong> " + forecastArray[i].humidity + "%</p>" + "<p><strong>Wind Speed:</strong> " + forecastArray[i].wind_speed + " MPH</p>";
+        "<p><strong>Humidity:</strong> " + forecastArray[i].humidity + "%</p>" + "<p><strong>Wind:</strong> " + forecastArray[i].wind_speed + " MPH</p>";
 
     fiveDayEl.appendChild(dayEl);
 }
@@ -161,12 +161,10 @@ var loadHistory = function () {
             historyButtonsEl.appendChild(searchHistoryEl);
             historyCardEl.removeAttribute("style");
         }
-
     }
 }
 
 // search for weater using search history
-
 var buttonClickHandler = function (event) {
     var cityName = event.target.getAttribute("data-city");
     if (cityName) {
@@ -175,14 +173,15 @@ var buttonClickHandler = function (event) {
 }
 
 //clear history
-
 var clearHistory = function (event) {
     localStorage.removeItem("weatherSearch");
     historyCardEl.setAttribute("style", "display: none");
 }
 
+//event listeners
 cityFormEl.addEventListener("submit", formSubmitHandler);
 historyButtonsEl.addEventListener("click", buttonClickHandler);
 trashEl.addEventListener("click", clearHistory);
 
+// pull up history
 loadHistory();
